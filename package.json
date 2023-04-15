@@ -7,8 +7,8 @@
     "start": "cross-env NODE_ENV=production node src/index.js",
     "dev": "cross-env NODE_ENV=development nodemon src/index.js",
     "test": "cross-env NODE_ENV=test jest",
-    "build:db": "cross-env NODE_ENV=development node src/database/config/run-builder",
-    "prod:build:db": "cross-env NODE_ENV=production node src/database/config/run-builder",
+    "build:db": "cross-env NODE_ENV=development node src/database/config/runBuilder",
+    "prod:build:db": "cross-env NODE_ENV=production node src/database/config/runBuilder",
     "build": "npm install && npm run build:db"
   },
   "repository": {
