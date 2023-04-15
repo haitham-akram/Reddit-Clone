@@ -1,0 +1,43 @@
+{
+  "name": "reddit-clone",
+  "version": "1.0.0",
+  "description": "reddit clone",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node src/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon src/index.js",
+    "test": "cross-env NODE_ENV=test jest",
+    "build:db": "cross-env NODE_ENV=development node src/database/config/run-builder",
+    "prod:build:db": "cross-env NODE_ENV=production node src/database/config/run-builder",
+    "build": "npm install && npm run build:db"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haitham-akram/Reddit-Clone.git"
+  },
+  "author": "Haitham Abu Lamdi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haitham-akram/Reddit-Clone/issues"
+  },
+  "homepage": "https://github.com/haitham-akram/Reddit-Clone#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cross-env": "^7.0.3",
+    "env2": "^2.2.2",
+    "express": "^4.18.2",
+    "joi": "^17.9.1",
+    "jsonwebtoken": "^9.0.0",
+    "pg": "^8.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22",
+    "supertest": "^6.3.3"
+  }
+}
