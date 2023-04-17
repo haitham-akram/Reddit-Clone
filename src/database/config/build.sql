@@ -2,7 +2,7 @@ BEGIN;
 DROP TABLE IF EXISTS users,
 posts,
 comments,
-votes cascade;
+votes CASCADE;
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
@@ -15,22 +15,23 @@ CREATE TABLE posts (
     title VARCHAR(255) NOT NULL,
     content text NOT NULL,
     images VARCHAR(255),
-    user_id INTEGER REFERENCES users(id),
+    user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE comments (
     id SERIAL PRIMARY KEY,
     content text NOT NULL,
-    user_id INTEGER REFERENCES users(id),
-    post_id INTEGER REFERENCES posts(id),
+    user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    post_id INTEGER REFERENCES posts(id) ON UPDATE CASCADE ON DELETE CASCADE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+DROP TYPE IF EXISTS vote_type;
 CREATE TYPE vote_type AS ENUM ('up', 'down');
 CREATE TABLE votes (
     id SERIAL PRIMARY KEY,
     type vote_type NOT NULL,
-    user_id INTEGER REFERENCES users(id),
-    post_id INTEGER REFERENCES posts(id),
+    user_id INTEGER REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    post_id INTEGER REFERENCES posts(id) ON UPDATE CASCADE ON DELETE CASCADE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 COMMIT;

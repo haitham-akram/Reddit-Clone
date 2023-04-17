@@ -5,7 +5,7 @@ const signInSchema = require('../../utils/validation/login.validation');
 const { generateToken } = require('../../utils/helpers/authToken');
 const CustomError = require('../../utils/helpers/customError');
 
-const signIn = (req, res) => {
+const signIn = (req, res, next) => {
   signInSchema
     .validateAsync(req.body)
     .then((validated) => getUser(validated.email))
@@ -25,17 +25,19 @@ const signIn = (req, res) => {
       message: 'User sign in successfully',
       statusCode: 200,
     }))
-    .catch((err) => {
-      if (err.name === 'ValidationError') {
-        return res.status(400 || err.status).json({
-          msg: err.message,
-          statusCode: 400,
-        });
-      }
-      return res.status(500 || err.status).json({
-        msg: err.message || 'Internal Server Error',
-        statusCode: err.status || 500,
-      });
-    });
+    .catch((err) => next(err));
+
+  // .catch((err) => {
+  //   if (err.name === 'ValidationError') {
+  //     return res.status(400 || err.status).json({
+  //       msg: err.message,
+  //       statusCode: 400,
+  //     });
+  //   }
+  //   return res.status(500 || err.status).json({
+  //     msg: err.message || 'Internal Server Error',
+  //     statusCode: err.status || 500,
+  //   });
+  // });
 };
 module.exports = signIn;
