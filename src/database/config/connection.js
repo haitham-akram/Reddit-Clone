@@ -3,7 +3,6 @@ require('env2')('.env');
 
 let dbUrl = '';
 let ssl = false;
-if (!process.env.DB_URL) throw new Error('No Database URl!!!');
 if (process.env.NODE_ENV === 'test') {
   dbUrl = process.env.Test_DB_URL;
 } else if (process.env.NODE_ENV === 'development') {

@@ -15,7 +15,7 @@ const addNewPost = (req, res, next) => {
     .then((validated) => addPost(validated))
     .then((newPost) => res.json({
       error: false,
-      data: newPost,
+      data: newPost.rows[0],
     }))
     .catch((err) => {
       next(err);
