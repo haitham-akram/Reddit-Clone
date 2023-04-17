@@ -3,7 +3,8 @@ const compression = require('compression');
 const cookieParser = require('cookie-parser');
 const { join } = require('path');
 require('env2')('.env');
-const router = require('./routes/index');
+const { router } = require('./routes/index');
+const serverError = require('./Error/serverError');
 
 const app = express();
 app.disabled('x-powered-by');
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(join(__dirname, '..', 'public')));
 app.use(compression());
 app.use(cookieParser());
-app.use(router);
 
+app.use(router);
+app.use(serverError);
 module.exports = app;

@@ -1,6 +1,7 @@
 const { verifyToken } = require('../utils/helpers/authToken');
+const CustomError = require('../utils/helpers/customError');
 
-const authenticatedUser = (req, res, next) => {
+const authUser = (req, res, next) => {
   const { token } = req.cookies;
   if (token) {
     verifyToken(token)
@@ -9,20 +10,10 @@ const authenticatedUser = (req, res, next) => {
         next();
       })
       .catch((err) => {
-        if (err.name === 'JsonWebTokenError') {
-          res.send({
-            message: 'Invalid or expired access token',
-            statusCode: 401,
-          });
-        }
-        res.send({
-          message:
-            err.message || 'you are not authorized to access this resource',
-          statusCode: err.status || 401,
-        });
+        next(err);
       });
   } else {
-    res.status(401).json({ message: 'authenticated' });
+    next(new CustomError(401, 'unauthorized'));
   }
 };
-module.exports = authenticatedUser;
+module.exports = authUser;

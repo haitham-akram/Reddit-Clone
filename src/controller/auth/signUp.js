@@ -6,7 +6,7 @@ const signUpSchema = require('../../utils/validation/signUp.validation');
 const { generateToken } = require('../../utils/helpers/authToken');
 const CustomError = require('../../utils/helpers/customError');
 
-const signUp = (req, res) => {
+const signUp = (req, res, next) => {
   const { username, password, email } = req.body;
   signUpSchema
     .validateAsync(req.body)
@@ -30,17 +30,6 @@ const signUp = (req, res) => {
         rows: req.user,
       });
     })
-    .catch((err) => {
-      if (err.name === 'ValidationError') {
-        return res.status(400 || err.status).json({
-          msg: err.message,
-          statusCode: 400,
-        });
-      }
-      return res.status(500 || err.status).json({
-        msg: err.message,
-        statusCode: err.status || 500,
-      });
-    });
+    .catch((err) => next(err));
 };
 module.exports = signUp;

@@ -11,6 +11,7 @@ const logInSchema = Joi.object({
   password: Joi.string()
     .min(8)
     .max(100)
-    .pattern(/^[a-zA-Z0-9 ._#?!-@]/),
+    .pattern(/^[a-zA-Z0-9 ._#?!-@]/)
+    .required(),
 });
 module.exports = logInSchema;
