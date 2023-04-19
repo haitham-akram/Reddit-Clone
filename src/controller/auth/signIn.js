@@ -26,18 +26,5 @@ const signIn = (req, res, next) => {
       statusCode: 200,
     }))
     .catch((err) => next(err));
-
-  // .catch((err) => {
-  //   if (err.name === 'ValidationError') {
-  //     return res.status(400 || err.status).json({
-  //       msg: err.message,
-  //       statusCode: 400,
-  //     });
-  //   }
-  //   return res.status(500 || err.status).json({
-  //     msg: err.message || 'Internal Server Error',
-  //     statusCode: err.status || 500,
-  //   });
-  // });
 };
 module.exports = signIn;
