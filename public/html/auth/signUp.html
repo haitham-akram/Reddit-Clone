@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SignUp</title>
+    <link rel="stylesheet" href="../../styles/auth/signUp.css">
+  </head>
+  <body>
+    <div class="signUp-card">
+      <img
+        src="../../assets/images/reddit-logo.png"
+      />
+      <h2>Sign Up</h2>
+      <h3>Welcome to It's Not a Reddit</h3>
+      <div class="signUp-form">
+        <div class="username">
+          <input
+            autocomplete="off"
+            spellcheck="false"
+            class="control"
+            type="text"
+            placeholder="Username"
+            id = 'username'
+          />
+          <div id="usernameSpinner" class="spinner"></div>
+        </div>
+        <div id="alert" class="alert"></div>
+        <div class="username">
+            <input
+              autocomplete="off"
+              spellcheck="false"
+              class="control"
+              type="email"
+              id = "email"
+              placeholder="Email"
+            />
+            <div id="emailSpinner" class="spinner"></div>
+          </div>
+        <div id="emailAlert" class="alert"></div>
+        <input
+          spellcheck="false"
+          class="control"
+          id="password"
+          type="password"
+          placeholder="Password"
+        />
+        <div id="passwordAlert" class="alert"></div>
+        <div id="bars">
+            <div></div>
+          </div>
+          <div class="strength" id="strength"></div>
+          <input
+          spellcheck="false"
+          class="control"
+          id="confirmPassword"
+          type="password"
+          placeholder="Confirm Password"
+        />
+        <div id="confirmPasswordAlert" class="alert"></div>
+        <button id="signUpButton" class="control" type="button">SignUp</button>
+      </div>
+      <div id = 'error' class="alert"></div>
+      <h3 ">Already have an account? <a href="/signIn">Login</a></h3>
+    </div>
+    
+    <script type="text/javascript" src="../../scripts/auth/helpers/signUp-helper.js"></script>
+    <script type="text/javascript" src="../../scripts/auth/helpers/signUp-validation.js"></script>
+    <script type="text/javascript" src="../../scripts/helpers/fetchers.js"></script>
+    <script type="text/javascript" src="../../scripts/auth/signUp.js"></script>
+  </body>
+</html>
