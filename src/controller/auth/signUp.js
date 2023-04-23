@@ -2,6 +2,7 @@ require('env2')('.env');
 const { hash } = require('bcrypt');
 
 const { addUser, getUser } = require('../../database/queries/auth');
+const getUserByUsername = require('../../database/queries/profile/getUser');
 const signUpSchema = require('../../utils/validation/signUp.validation');
 const { generateToken } = require('../../utils/helpers/authToken');
 const CustomError = require('../../utils/helpers/customError');
@@ -14,6 +15,12 @@ const signUp = (req, res, next) => {
     .then((userData) => {
       if (userData.rowCount > 0) {
         throw new CustomError(400, 'this email is already used.');
+      }
+    })
+    .then(() => getUserByUsername(username))
+    .then((result) => {
+      if (result.rowCount > 0) {
+        throw new CustomError(400, 'this username is already used.');
       }
       return hash(password, 10);
     })
