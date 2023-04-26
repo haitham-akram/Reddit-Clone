@@ -15,7 +15,12 @@ const addNewPost = (req, res, next) => {
     .then((validated) => addPost(validated))
     .then((newPost) => res.json({
       error: false,
-      data: newPost.rows[0],
+      data: {
+        upvotes: 0,
+        downvotes: 0,
+        username: req.user.username,
+        ...newPost.rows[0],
+      },
     }))
     .catch((err) => {
       next(err);

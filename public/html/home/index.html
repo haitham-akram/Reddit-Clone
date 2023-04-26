@@ -4,12 +4,76 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"
-    rel="stylesheet">
     <link rel="stylesheet" href="../../styles/home/index.css">
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="../../assets/images/reddit.png" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Reddit</title>
 </head>
 <body>
-    
+    <!-- start  -->
+    <div class="nav">
+        <div class="nav-logo">
+            <a aria-label="Home" href="/">
+                <img class="reddit-logo" src="../../assets/images/reddit.png" alt="reddit-logo"/>
+                <img class="reddit-name" src="../../assets/images/Reddit-name.png" alt="reddit-name"/>
+                
+            </a>
+        </div>
+
+        <div class="nav-search">
+            <svg for="reddit-search" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15.59,13.91l2.78,2.69a1.25,1.25,0,1,1-1.74,1.8l-2.82-2.73a8,8,0,1,1,1.78-1.76ZM14.64,9.2A5.45,5.45,0,1,0,9.2,14.64,5.45,5.45,0,0,0,14.64,9.2Z"></path></svg>
+            <input placeholder="Search" id="reddit-search">
+        </div>
+
+        <div class="nav-login-signup-profile">
+            <i id="toggleDayOrNight" class="ri-contrast-2-fill"></i>
+            <div id="auth" class="nav-login-signup-profile">
+            </div>
+        </div>
+    </div>
+    <!-- end -->
+
+    <div id="container">
+        <div id="addDiv" class="content">
+            <div class="user-info"><img class="user-img" src="../../assets/images/reddit.png" alt="username-img"> <button class="create_btn">Create Post</button> </div>
+         </div>
+      </div>
+
+      <div class="popup">
+        
+        <form class="add-form">
+            <h3>Add post</h3>
+            <i class="ri-close-line"></i>
+            <input type="text" class="text" name="title" placeholder="title">
+            <input type="text" class="text" name = 'content' placeholder="content">
+            <input type="text" class="text" name = 'images' placeholder="image">
+            <div class="alert"></div>
+            <button type="text" class="submit" >Add</button>
+        </form>
+
+      </div>
+
+      <div class="popup2">
+        
+        <form class="edit-form">
+            <h3>Edit post</h3>
+            <i id ="close" class="ri-close-line"></i>
+            <input type="text" class="text" name="title" placeholder="title">
+            <input type="text" class="text" name = 'content' placeholder="content">
+            <input type="text" class="text" name = 'images' placeholder="image">
+            <div class="alert"></div>
+            <button type="text" class="submit" >Edit</button>
+        </form>
+
+      </div>
+
+      <script src="../../scripts/helpers/fetchers.js"></script>
+      <script src="../../scripts/helpers/timeTrans.js"></script>
+      <script src="../../scripts/helpers/postValidation.js"></script>
+      <script src="../../scripts/helpers/authChecker.js"></script>
+      <script src="../../scripts/helpers/domHelper.js"></script>
+      <script src="../../scripts/helpers/navAuth.js"></script>
+      <script src="../../scripts/home/dom.js"></script>
+      <script src="../../scripts/home/index.js"></script>
 </body>
 </html>

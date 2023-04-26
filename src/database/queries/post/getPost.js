@@ -1,10 +1,32 @@
 const dbConnection = require('../../config/connection');
 
 const getPost = () => dbConnection.query(
-  `select post.id, post.title, post.content, post.images, post.user_id, post.created_at, users.username,
-  COUNT(votes.id) filter (where votes.post_id = post.id and votes.type = 'up') as upVotes,
-  COUNT(votes.id) filter (where votes.post_id = post.id and votes.type = 'down') as downVotes
-  from posts post join users on users.id = post.user_id left join votes on votes.post_id = post.id
-  group by post.id, users.username  order by upVotes desc;`,
+  `SELECT
+    posts.id,
+    posts.title,
+    posts.content,
+    posts.images,
+    posts.user_id,
+    posts.created_at,
+    users.username,
+    COUNT(DISTINCT comments.id) AS comment_count,
+    COUNT(
+        DISTINCT CASE
+            WHEN votes.type = 'up' THEN votes.id
+        END
+    ) AS upVotes,
+    COUNT(
+        DISTINCT CASE
+            WHEN votes.type = 'down' THEN votes.id
+        END
+    ) AS downVotes
+FROM posts
+    JOIN users ON posts.user_id = users.id
+    LEFT JOIN comments ON posts.id = comments.post_id
+    LEFT JOIN votes ON posts.id = votes.post_id
+GROUP BY
+    posts.id,
+    users.username
+ORDER BY COUNT(DISTINCT CASE WHEN votes.type = 'up' THEN votes.id END) - COUNT(DISTINCT CASE WHEN votes.type = 'down' THEN votes.id END) DESC;`,
 );
 module.exports = getPost;

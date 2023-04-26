@@ -4,6 +4,7 @@ const {
   updateVote,
   getVoteById,
   deleteVote,
+  getPostVote,
 } = require('../../database/queries/votes');
 
 const voting = (req, res, next) => {
@@ -21,7 +22,15 @@ const voting = (req, res, next) => {
       return updateVote({ user_id, vote_type, post_id }, vote.rows[0].id);
     })
     .then((vote) => {
-      res.json({ error: false, data: vote.rows[0] });
+      req.vote = vote.rows[0].type;
+      return getPostVote(post_id);
+    })
+    .then((data) => {
+      const allVoteCount = data.rows[0].up_votes_count - data.rows[0].down_votes_count;
+      res.json({
+        error: false,
+        data: { type: req.vote, allVoteCount, ...data.rows[0] },
+      });
     })
     .catch((err) => next(err));
 };

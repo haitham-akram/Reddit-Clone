@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/home/index.css">
+    <link rel="stylesheet" href="../../styles/profile/profile.css">
     <link rel="icon" type="image/png" href="../../assets/images/reddit.png" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <title>Reddit</title>
@@ -21,8 +22,8 @@
         </div>
 
         <div class="nav-search">
-            <svg for="reddit-search" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15.59,13.91l2.78,2.69a1.25,1.25,0,1,1-1.74,1.8l-2.82-2.73a8,8,0,1,1,1.78-1.76ZM14.64,9.2A5.45,5.45,0,1,0,9.2,14.64,5.45,5.45,0,0,0,14.64,9.2Z"></path></svg>
-            <input placeholder="Search" id="reddit-search">
+           <button id="post-button" class="post-button">Posts</button>
+           <button id="comment-button" class="comment-button">Comments</button>
         </div>
 
         <div class="nav-login-signup-profile">
@@ -32,13 +33,21 @@
         </div>
     </div>
     <!-- end -->
+    <div class="parent">
 
     <div id="container">
-        <div id="addDiv" class="content">
-            <div class="user-info"><img class="user-img" src="../../assets/images/reddit.png" alt="username-img"> <button class="create_btn">Create Post</button> </div>
-         </div>
+        <!-- <h1 class="header" id="header">Your Posts <i class="ri-profile-fill" style="cursor: default;"></i></h1> -->
       </div>
-
+      <div class="user-details">
+        <div id="user-details" class="content"> 
+            <img class="user-details-img" src="../../assets/images/reddit.png" alt="user_img">
+            <h3 id="username-place" class="user-details-user"></h3>
+            <h3 id="email-place" class="user-details-email"></h3>
+            <h4 id="cake-place" class="user-details-email"></h4>
+            <button id="addDiv" class="create_btn">Create Post</button> 
+        </div>
+      </div>
+    </div>
       <div class="popup">
         
         <form class="add-form">
@@ -71,13 +80,14 @@
 
       </div>
 
-      <script src="scripts/helpers/fetchers.js"></script>
-      <script src="scripts/helpers/postValidation.js"></script>
-      <script src="scripts/helpers/timeTrans.js"></script>
-      <script src="scripts/helpers/authChecker.js"></script>
-      <script src="scripts/helpers/domHelper.js"></script>
-      <script src="scripts/helpers/navAuth.js"></script>
-      <script src="scripts/home/dom.js"></script>
-      <script src="scripts/home/index.js"></script>
+      <script src="../../scripts/helpers/fetchers.js"></script>
+      <script src="../../scripts/helpers/postValidation.js"></script>
+      <script src="../../scripts/helpers/timeTrans.js"></script>
+      <script src="../../scripts/helpers/authChecker.js"></script>
+      <script src="../../scripts/helpers/domHelper.js"></script>
+      <script src="../../scripts/helpers/navAuth.js"></script>
+      <script src="../../scripts/home/dom.js"></script>
+      <script src="../../scripts/profile/dom.js"></script>
+      <script src="../../scripts/profile/index.js"></script>
 </body>
 </html>
