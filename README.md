@@ -1,8 +1,6 @@
 # Reddit Clone
-<div style = "display :flex;  flex-direction: column; justify-content: center; align-items: center;">
 <img src = './public/assets/images/reddit.png' alt = 'logo' style ="width: 150px; height:150px; margin:10px;" >
-<img src = './public/assets/images/Reddit-name.png' alt = 'logo' style ="width: 200px; height:50px; margin:10px;" >
-</div>
+
 </br>
 </br>
 
