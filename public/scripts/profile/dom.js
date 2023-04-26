@@ -27,6 +27,9 @@ getFetch(`/profile/${username}`).then((res) => {
 const createCommentCard = (data) => {
   data.forEach((element) => {
     const content = createElement('div', 'content', container);
+    if (mood) {
+      content.classList.toggle('content-dark-mode');
+    }
     const userInfo = createElement('div', 'user-info', content);
     const title = createElement('h2', 'title', content);
     title.textContent = element.title;
