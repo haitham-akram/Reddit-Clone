@@ -21,10 +21,14 @@ const signIn = (req, res, next) => {
       if (!isValid) throw new CustomError(400, 'password is incorrect');
       return generateToken({ id: req.user.id, username: req.user.username });
     })
-    .then((token) => res.cookie('token', token).status(200).json({
-      message: 'User sign in successfully',
-      statusCode: 200,
-    }))
+    .then((token) => res
+      .cookie('token', token)
+      .status(200)
+      .json({
+        message: 'User sign in successfully',
+        statusCode: 200,
+        data: { id: req.user.id, username: req.user.username },
+      }))
     .catch((err) => next(err));
 };
 module.exports = signIn;

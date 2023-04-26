@@ -3,6 +3,7 @@ const getAllPosts = require('./getAllPost');
 const getPostsById = require('./getPostById');
 const updatePost = require('./updatePost');
 const deletePost = require('./deletePost');
+const allPostsPage = require('./allPostPage');
 
 module.exports = {
   addNewPost,
@@ -10,4 +11,5 @@ module.exports = {
   getPostsById,
   updatePost,
   deletePost,
+  allPostsPage,
 };

@@ -15,7 +15,8 @@ logInButton.addEventListener('click', () => {
       password: passwordInput.value,
     }).then((res) => {
       if (res.statusCode === 200) {
-        window.location.href = '/home';
+        localStorage.setItem('user', JSON.stringify(res.data));
+        window.location.href = '/';
       } else if (res.error === true) {
         errorAlert.classList.add('visible');
         errorAlert.textContent = res.data.message;

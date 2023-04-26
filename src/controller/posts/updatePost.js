@@ -29,7 +29,15 @@ const updatePosts = (req, res, next) => {
     .then((updatedPost) => {
       const { username } = req.user;
       const {
-        id, title, content, images, user_id, created_at,
+        id,
+        title,
+        content,
+        images,
+        user_id,
+        created_at,
+        upvotes,
+        downvotes,
+        comment_count,
       } = updatedPost.rows[0];
       return res.json({
         error: false,
@@ -41,6 +49,9 @@ const updatePosts = (req, res, next) => {
           user_id,
           created_at,
           username,
+          upvotes,
+          downvotes,
+          comment_count,
         },
       });
     })

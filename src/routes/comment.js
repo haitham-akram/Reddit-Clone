@@ -13,8 +13,8 @@ const authUser = require('../middleware/authenticatedUser');
 
 commentRouter.get('/post/:id/comments', getCommentsByPost);
 commentRouter.get('/comment/:id', getCommentsById);
-commentRouter.use(authUser);
-commentRouter.post('/comment', addComments);
-commentRouter.put('/comment/:id', updateComments);
-commentRouter.delete('/comment/:id', deleteComments);
+
+commentRouter.post('/comment', authUser, addComments);
+commentRouter.put('/comment/:id', authUser, updateComments);
+commentRouter.delete('/comment/:id', authUser, deleteComments);
 module.exports = commentRouter;

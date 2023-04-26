@@ -11,10 +11,10 @@ const {
 } = require('../controller/posts');
 const authUser = require('../middleware/authenticatedUser');
 
+postRouter.get('/', getAllPosts);
 postRouter.get('/posts', getAllPosts);
 postRouter.get('/posts/:id', getPostsById);
-postRouter.use(authUser);
-postRouter.post('/posts', addNewPost);
-postRouter.put('/posts/:id', updatePost);
-postRouter.delete('/posts/:id', deletePost);
+postRouter.post('/posts', authUser, addNewPost);
+postRouter.put('/posts/:id', authUser, updatePost);
+postRouter.delete('/posts/:id', authUser, deletePost);
 module.exports = postRouter;

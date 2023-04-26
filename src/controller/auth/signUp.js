@@ -34,7 +34,7 @@ const signUp = (req, res, next) => {
       res.cookie('token', token).status(200).json({
         statusCode: 200,
         massage: 'the user has been sign up successfully',
-        rows: req.user,
+        data: req.user,
       });
     })
     .catch((err) => next(err));

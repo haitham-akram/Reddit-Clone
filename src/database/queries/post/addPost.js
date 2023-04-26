@@ -6,7 +6,9 @@ const addPost = (data) => {
     title, content, images, user_id,
   } = data;
   const sql = {
-    text: 'insert into posts (title,content,images,user_id) values ($1,$2,$3,$4) returning id,title,content,images,user_id;',
+    text: `INSERT INTO posts (title, content, images, user_id)
+    VALUES ($1, $2, $3, $4)
+    RETURNING id, title, content, images, user_id, created_at;`,
     values: [title, content, images, user_id],
   };
   return dbConnection.query(sql);

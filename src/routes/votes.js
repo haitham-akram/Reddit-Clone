@@ -4,7 +4,6 @@ const votesRouter = express.Router();
 const authUser = require('../middleware/authenticatedUser');
 const voting = require('../controller/votes/vote');
 
-votesRouter.use(authUser);
-votesRouter.post('/vote/:id', voting);
+votesRouter.post('/vote/:id', authUser, voting);
 
 module.exports = votesRouter;
