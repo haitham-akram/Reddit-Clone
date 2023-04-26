@@ -25,6 +25,10 @@ window.addEventListener('DOMContentLoaded', () => {
         .querySelector('.add-form')
         .classList.toggle('add-form-dark-mode');
 
+      document
+        .querySelector('.edit-form')
+        .classList.toggle('add-form-dark-mode');
+
       if (document.querySelector('body').className) {
         document.getElementById('toggleDayOrNight').classList = 'ri-sun-fill';
       } else {
@@ -120,7 +124,9 @@ const createComment = (allComments, comment, countComment) => {
           commentsContent,
         );
         submitEdit.addEventListener('click', () => {
-          if (validation(editCommentInput.value, commentContentAlert2, 'Content')) {
+          if (
+            validation(editCommentInput.value, commentContentAlert2, 'Content')
+          ) {
             editFetch(`/comment/${comment.id}`, {
               content: editCommentInput.value,
             }).then((res) => {
@@ -225,7 +231,10 @@ const createCard = (element) => {
         editFetch(`/posts/${element.id}`, data).then((result) => {
           if (result.error === false) {
             content.remove();
-            createCard(result.data);
+            const newPost = createCard(result.data);
+            if (mood) {
+              newPost.classList.toggle('content-dark-mode');
+            }
             editForm.reset();
             popup2.classList.remove('active');
             editForm.removeEventListener('submit', handleEditFormSubmit);
@@ -293,7 +302,10 @@ const createCard = (element) => {
 
 const createCards = (data) => {
   data.forEach((element) => {
-    createCard(element);
+    const newPost = createCard(element);
+    if (mood) {
+      newPost.classList.toggle('content-dark-mode');
+    }
   });
 };
 
