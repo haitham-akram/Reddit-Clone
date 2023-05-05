@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/home/index.css">
+    <link rel="stylesheet" href="../../styles/profile/profile.css">
+    <link rel="icon" type="image/png" href="../../assets/images/reddit.png" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Reddit</title>
+</head>
+<body>
+    <!-- start  -->
+    <div class="nav">
+        <div class="nav-logo">
+            <a aria-label="Home" href="/">
+                <img class="reddit-logo" src="../../assets/images/reddit.png" alt="reddit-logo"/>
+                <img class="reddit-name" src="../../assets/images/Reddit_name_OnWhite.png" alt="reddit-name"/>
+                
+            </a>
+        </div>
+
+        <div class="nav-search">
+           <button id="post-button" class="post-button">Posts</button>
+           <button id="comment-button" class="comment-button">Comments</button>
+        </div>
+
+        <div class="nav-login-signup-profile">
+            <i id="toggleDayOrNight" class="ri-contrast-2-fill"></i>
+            <div id="auth" class="nav-login-signup-profile">
+            </div>
+        </div>
+    </div>
+    <!-- end -->
+    <div class="parent">
+
+    <div id="container">
+        <!-- <h1 class="header" id="header">Your Posts <i class="ri-profile-fill" style="cursor: default;"></i></h1> -->
+      </div>
+      <div class="user-details">
+        <div id="user-details" class="content"> 
+            <img class="user-details-img" src="../../assets/images/reddit.png" alt="user_img">
+            <h3 id="username-place" class="user-details-user"></h3>
+            <h3 id="email-place" class="user-details-email"></h3>
+            <h4 id="cake-place" class="user-details-email"></h4>
+            <button id="addDiv" class="create_btn">Create Post</button> 
+        </div>
+      </div>
+    </div>
+      <div class="popup">
+        
+        <form class="add-form">
+            <h3>Add post</h3>
+            <i class="ri-close-line"></i>
+            <input type="text" class="text" name="title" placeholder="title">
+            <div id ='addTitleAlert' class="alert"></div>
+            <input type="text" class="text" name = 'content' placeholder="content">
+            <div id="addContentAlert" class="alert"></div>
+            <input type="text" class="text" name = 'images' placeholder="image">
+            <div class="alert"></div>
+            <button type="text" class="submit" >Add</button>
+        </form>
+
+      </div>
+
+      <div class="popup2">
+        
+        <form class="edit-form">
+            <h3>Edit post</h3>
+            <i id ="close" class="ri-close-line"></i>
+            <input type="text" class="text" name="title" placeholder="title">
+            <div id ='editTitleAlert' class="alert"></div>
+            <input type="text" class="text" name = 'content' placeholder="content">
+            <div id ='editContentAlert' class="alert"></div>
+            <input type="text" class="text" name = 'images' placeholder="image">
+            <div class="alert"></div>
+            <button type="text" class="submit" >Edit</button>
+        </form>
+
+      </div>
+
+      <script src="../../scripts/helpers/fetchers.js"></script>
+      <script src="../../scripts/helpers/postValidation.js"></script>
+      <script src="../../scripts/helpers/timeTrans.js"></script>
+      <script src="../../scripts/helpers/authChecker.js"></script>
+      <script src="../../scripts/helpers/domHelper.js"></script>
+      <script src="../../scripts/helpers/navAuth.js"></script>
+      <script src="../../scripts/home/dom.js"></script>
+      <script src="../../scripts/profile/dom.js"></script>
+      <script src="../../scripts/profile/index.js"></script>
+</body>
+</html>

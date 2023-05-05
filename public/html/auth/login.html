@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>logIn</title>
+    <link rel="stylesheet" href="../../styles/auth/login.css">
+    <link rel="icon" type="image/png" href="../../assets/images/reddit.png" />
+  </head>
+  <body>
+    <div class="logIn-card">
+      <img
+        src="../../assets/images/reddit-logo.png"
+      />
+      <h2>Log In</h2>
+      <h3>Welcome Back</h3>
+      <div class="logIn-form">
+        <div class="username">
+            <input
+              autocomplete="off"
+              spellcheck="false"
+              class="control"
+              type="email"
+              id = "email"
+              placeholder="Email"
+            />
+          </div>
+        <div id="emailAlert" class="alert"></div>
+
+        <input
+          spellcheck="false"
+          class="control"
+          id="password"
+          type="password"
+          placeholder="Password"
+        />
+        <div id="passwordAlert" class="alert"></div>
+
+        <button id="logInButton" class="control" type="button">LogIn</button>
+      </div>
+      <div id = 'error' class="alert"></div>
+      <h3 ">Don't have an account? <a href="/signUp">signUp</a></h3>
+    </div>
+    
+    <script type="text/javascript" src="../../scripts/auth/helpers/logIn-validation.js"></script>
+    <script type="text/javascript" src="../../scripts/helpers/fetchers.js"></script>
+    <script type="text/javascript" src="../../scripts/auth/logIn.js"></script>
+  </body>
+</html>

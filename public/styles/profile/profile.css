@@ -1,0 +1,45 @@
+#container{
+    width: 35%;
+}
+.content {
+    width:100%;
+}
+.parent{
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+}
+#user-details{
+    margin: 107px 0px;
+    width: 200%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:15px;
+}
+.user-details-img{
+    width: 100px;
+    height: 100px;
+}
+.post-button,.comment-button{
+    width: 150px;
+    height: 30px;
+    background-color: #8f44fd;
+    border: none;
+    color: white;
+    border-radius: 6px;
+}
+.post-button:hover,.comment-button:hover{
+    background-color: #751ef8;
+}
+.nav-search{
+    background-color: transparent;
+    justify-content: center;
+    gap:10px;
+}
+.buttons2{
+    font-size: 30px;
+}
+.header:hover{
+color: #8f44fd;
+}
